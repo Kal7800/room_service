@@ -52,7 +52,7 @@ class userService {
   async addPhoto(id, name) {
     const user = await models.User.findByPk(id);
     const updateUser = await user.update({
-      photo: `https://pacific-atoll-59481.herokuapp.com//public/imgUser/${name}`,
+      photo: `https://pacific-atoll-59481.herokuapp.com/public/imgUser/${name}`,
     });
     return updateUser;
   }
