@@ -4,7 +4,7 @@ const id = joi.number().integer();
 const name = joi.string().min(5).max(20);
 const surname = joi.string().min(5).max(20);
 const email = joi.string().email();
-const number = joi.string().min(13).max(14);
+const number = joi.string().min(8).max(9);
 const password = joi.string().min(8);
 const photo = joi.string();
 
@@ -18,6 +18,7 @@ const createUser = joi.object({
 });
 
 const updateUser = joi.object({
+  id,
   name,
   email,
   surname,

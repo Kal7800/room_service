@@ -51,6 +51,11 @@ const schemaUser = {
     type: DataTypes.STRING(75),
     field: 'profile_photo',
   },
+  userReview:{
+    allowNull: true,
+    type: DataTypes.STRING(180),
+    field: 'user_review'
+  }
 };
 
 class User extends Model {

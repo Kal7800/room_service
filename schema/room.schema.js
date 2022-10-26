@@ -5,9 +5,10 @@ const category = joi.string().min(4).max(7);
 const user = joi.number().integer();
 const image = joi.string().min(3);
 const place = joi.string().min(5).max(50);
-const direction = joi.string().min(10).max(50);
+const direction = joi.string().min(45).max(50);
 const description = joi.string().min(70).max(200);
 const price = joi.number().precision(2);
+const titulo = joi.string().min(30).max(60);
 
 const limit = joi.number().integer();
 const offset = joi.number().integer();
@@ -19,6 +20,7 @@ const createRoom = joi.object({
   categoriaPerteneciente: category,
   usuarioPerteneciente: user,
   imageRoom: image,
+  titulo: titulo.required(),
   departamento: place.required(),
   direccion: direction.required(),
   descripcion: description.required(),
@@ -29,6 +31,7 @@ const updateRoom = joi.object({
   categoriaPerteneciente: category,
   usuarioPerteneciente: user,
   imageRoom: image,
+  titulo: titulo,
   departamento: place,
   direccion: direction,
   descripcion: description,

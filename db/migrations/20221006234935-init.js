@@ -55,6 +55,11 @@ module.exports = {
         type: DataTypes.STRING(75),
         field: 'profile_photo',
       },
+      userReview:{
+        allowNull: true,
+        type: DataTypes.STRING(180),
+        field: 'user_review'
+      }
     });
     await queryInterface.createTable(CATEGORY_TABLE, {
       categoryId: {
@@ -104,6 +109,11 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
       },
+      titulo:{
+        allowNull: false,
+        type: DataTypes.STRING,
+        field: 'titulo_del_cuarto'
+    },
       imageRoom: {
         allowNull: false,
         type: DataTypes.STRING(150),

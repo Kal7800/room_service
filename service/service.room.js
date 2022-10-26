@@ -16,7 +16,7 @@ class roomService {
     const categoria = roundCategoty(precio);
 
     const newRoom = await models.Room.create({
-      imageRoom: `https://pacific-atoll-59481.herokuapp.com/public/imgRoom/${name}`,
+      imageRoom: `http://localhost:3000/public/imgRoom/${name}`,
       usuarioPerteneciente: idU,
       categoriaPerteneciente: categoria,
       ...data,
@@ -63,13 +63,13 @@ class roomService {
     if(wherePlace){
 
       const rooms = await sequelize.query(`SELECT users.user_name ,users.user_email ,users.numero,
-      rooms.room_id,rooms.image_url,rooms.precio, rooms.direccion,rooms.departamento, rooms.descripcion
+      rooms.room_id,rooms.image_url,rooms.precio, rooms.direccion,rooms.departamento,rooms.titulo_del_cuarto,rooms.descripcion
       FROM rooms INNER JOIN
       users ON users.user_id=rooms.usuario_perteneciente where departamento='${wherePlace}'`)
       return rooms
     }else{
       const rooms = await sequelize.query(`SELECT users.user_name ,users.user_email ,users.numero,
-    rooms.room_id,rooms.image_url,rooms.precio, rooms.direccion,rooms.departamento, rooms.descripcion
+    rooms.room_id,rooms.image_url,rooms.precio, rooms.direccion,rooms.departamento, rooms.titulo_del_cuarto,rooms.descripcion
     FROM rooms INNER JOIN
     users ON users.user_id=rooms.usuario_perteneciente`)
     return rooms;
@@ -78,7 +78,7 @@ class roomService {
 
   async findOneUser (id){
     const room = await sequelize.query(`SELECT users.user_name ,users.user_email ,users.numero,
-    rooms.room_id,rooms.image_url,rooms.precio, rooms.direccion,rooms.departamento, rooms.descripcion
+    rooms.room_id,rooms.image_url,rooms.precio, rooms.direccion,rooms.departamento,rooms.titulo_del_cuarto,rooms.descripcion
     FROM rooms INNER JOIN
     users ON users.user_id=rooms.usuario_perteneciente where room_id=${id}`);
     return room;

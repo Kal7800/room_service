@@ -37,6 +37,11 @@ const schemaRoom = {
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL',
   },
+  titulo:{
+      allowNull: false,
+      type: DataTypes.STRING,
+      field: 'titulo_del_cuarto'
+  },
   imageRoom: {
     allowNull: false,
     type: DataTypes.STRING(150),
